@@ -1,0 +1,71 @@
+#slotSection{
+    margin-top: 10%;
+    height: 450px;
+    width: 950px;
+    background-color: silver;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+/* REEL ONE OF THE SLOT  */
+.symbol{
+    /* margin-top: 55%; */
+    font-size: 25px;
+}
+
+.reel-one{
+    position: relative;
+}
+
+.reel-one .symbol{
+    position: absolute;
+    top: 45%;
+    left: 45%;
+}
+
+.reel-one .spin-img{
+    position: absolute;
+    /* display: none; */
+    top: 15%;
+    left: 0%;
+}
+
+/* REEL TWO OF THE SLOT */
+.reel-two{
+    position: relative;
+}
+
+.reel-two .symbol{
+    position: absolute;
+    top: 45%;
+    left: 45%;
+}
+
+.reel-two .spin-img{
+    position: absolute;
+    /* display: none; */
+    top: 15%;
+    left: 0%;
+}
+/* REEL THREE OF THE SLOT */
+
+.reel-three{
+    position: relative;
+}
+
+.reel-three .symbol{
+    position: absolute;
+    top: 45%;
+    left: 45%;
+}
+
+.reel-three .spin-img{
+    position: absolute;
+    top: 15%;
+    left: 0%;
+    /* display: none; */
+}
+
+.symbol-img{
+    width: 50px;
+    height: 50px;
+}
