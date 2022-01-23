@@ -1,45 +1,3 @@
-/*
-Making a slot machine
-    three bar slot machine
-        needs to randomly generate three ID's to set as the spin.
-            way to set the win condition is to set a break statement 
-    six symbols
-    use contructor to make the img show up and use price, id, name, and etc.
-        three lower symbols
-        three premimum
-    trigger will be a button that will spin the slot and consume a token.
-        spin cost one token
-        if no token then game !
-        wins will be 1 x icon id
-    cash out button
-        ends the game and tells you good job for cashing out.
-
-    Functions in my class object.
-        One to set win conditions()
-            if win condition = array then pay X
-        one for making the pictures appear from the spin()
-            making the spin animation is possible if we layer picture and gif on top of each other.
-            or a question mark with a small animation to hide the symbol while spinning
-        one for keeping track of the tokens and currency()
-
-        one to cashout ()
-        clear screen ()
-
-        free codecamp challenge 69
-
-
-
-        Data needed:
-        currency
-        costOfSpin
-
-        firstSlotValue
-        SeconedSlotValue
-        ThirdSlotValue
-        (AND IF I WANT TO RANDOMLY GENERATE random symbols cut of to give the illusion. Prolly not tho tbh)
-
-*/
-
 // const gameBoard = document.getElementById('gameBoard');
 // const gameBoardCTX = gameBoard.getContext('2d');
 
@@ -66,31 +24,46 @@ class slotMachine {
         }
 
         this.symbols = {
+            // https://pokemondb.net/sprites this is where the images will come from
             symbol1: {
                 id: 1,
                 multi: 1,
-                img: "/media/charmander.jpg",
-                name: "TEN"
+                img: "/media/charmander.png",
+                name: "Charmander"
             },
             symbol2: {
                 id: 2,
                 multi: 2,
-                img: "/media/pickachu.png",
-                name: "KING"
+                img: "/media/pikachu.png",
+                name: "Pickachu"
             },
             symbol3: {
                 id: 3,
                 multi: 3,
-                img: "/media/turtwig.jpg",
-                name: "ACE"
+                img: "/media/wooloo.png",
+                name: "Wooloo"
             },
-            // Premium Symbol
             symbol4: {
                 id: 4,
                 multi: 4,
-                img: "/media/articino.png",
-                name: "CAT"
+                img: "/media/cinccino.png",
+                name: "Cinccino"
+            },
+            symbol5: {
+                id: 5,
+                multi: 5,
+                img: "/media/darkrai.png",
+                name: "Cinccino"
+            },
+            symbol6: {
+                id: 6,
+                multi: 6,
+                img: "/media/zacian-crowned.png",
+                name: "Cinccino"
             }
+            
+            // Premium Symbol
+            
             // ADD MORE SYMBOLS ONOCE YOU GET IT TO WORK.
         }
 
@@ -126,9 +99,9 @@ class slotMachine {
             // ON CLICK => RANDOM-IDX THE THREE SLOT VALUES AND CHANGE THE INNER TEXT OF THOSE THREE VALUES. THOSE VALUES WILL BE USED LATER WHEN I CREATE THE WIN CONDITIONS
 
             let spinImg = document.querySelectorAll('.spin-img')
-            var slotOneOneIdx = Math.ceil(Math.random() * 4)
-            var slotOneTwoIdx = Math.ceil(Math.random() * 4)
-            var slotOneThreeIdx = Math.ceil(Math.random() * 4)
+            var slotOneOneIdx = Math.ceil(Math.random() * 6)
+            var slotOneTwoIdx = Math.ceil(Math.random() * 6)
+            var slotOneThreeIdx = Math.ceil(Math.random() * 6)
             // CHANGE THIS WHEN YOU ADD MORE SYMBOLS USING CEIL PREVENTS FROM GETTING 0
 
             this.slotspaces.oneOneSlot = slotOneOneIdx
@@ -179,6 +152,14 @@ class slotMachine {
                         element.innerHTML =`
                         <img src="${this.symbols.symbol4.img}" alt="" class="symbol-img">
                         `
+                    }else if(slotResult[count] == 5){
+                        element.innerHTML =`
+                        <img src="${this.symbols.symbol5.img}" alt="" class="symbol-img">
+                        `
+                    }else if(slotResult[count] == 6){
+                        element.innerHTML =`
+                        <img src="${this.symbols.symbol6.img}" alt="" class="symbol-img">
+                        `
                     } else{
                         console.log("error")
                     }
@@ -199,7 +180,7 @@ class slotMachine {
             // https://www.30secondsofcode.org/articles/s/javascript-array-comparison
             // THIS IS WHERE I GOT THE IDEA OF JSON.STRIGFY IT TURNS A ARRAY INTO A STRING SO THAT YOU CAN ACTUALLY COMPARE IT BECAUSE ARRAYS ARE WEIRD
 
-            if (this.currency.totalCurrency >= this.currency.betSize) {
+            if (this.currency.totalCurrency > this.currency.betSize) {
                 switch (JSON.stringify(slotResult)) {
                     case JSON.stringify(winningSpins[0]):
                         this.currency.totalCurrency += this.currency.betSize * this.symbols.symbol1.multi
@@ -238,11 +219,33 @@ class slotMachine {
     }
 
     loadItems(){
-        let test = document.querySelectorAll(".testing-img")
+        let count = 0;
+        let slotInfoRowOne = document.getElementById('symbolRowOne');
+        let slotInfoRowTwo = document.getElementById('symbolRowTwo');
 
+        for(const key in this.symbols){
+            const item = this.symbols[key]
+            const product = document.createElement('div')
+            product.className = 'col-4 symbol product'
+            product.innerHTML=`<div class="card" style="width: 18rem;">
+            <img src="${item.img}" class="card-img-top symbol-info " alt="${item.name}">
+            <div class="card-body">
+              <h5 class="card-title">${item.name}</h5>
+              <p class="card-text">The multiplier for this symbol is ${item.multi}</p>
+            </div>
+          </div>
+            `
+
+            if(count < 3){
+                slotInfoRowOne.append(product);
+            } else{
+                slotInfoRowTwo.append(product)
+            }
+            
+            count++
+        }
 
     }
-
 
 }
 
@@ -250,4 +253,6 @@ class slotMachine {
 let action = new slotMachine;
 
 action.spinSlot();
+action.loadItems();
 // action.winningSpins();
+console.log("Test")

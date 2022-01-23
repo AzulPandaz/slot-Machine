@@ -1,0 +1,41 @@
+/*
+Making a slot machine
+    three bar slot machine
+        needs to randomly generate three ID's to set as the spin.
+            way to set the win condition is to set a break statement 
+    six symbols
+    use contructor to make the img show up and use price, id, name, and etc.
+        three lower symbols
+        three premimum
+    trigger will be a button that will spin the slot and consume a token.
+        spin cost one token
+        if no token then game !
+        wins will be 1 x icon id
+    cash out button
+        ends the game and tells you good job for cashing out.
+
+    Functions in my class object.
+        One to set win conditions()
+            if win condition = array then pay X
+        one for making the pictures appear from the spin()
+            making the spin animation is possible if we layer picture and gif on top of each other.
+            or a question mark with a small animation to hide the symbol while spinning
+        one for keeping track of the tokens and currency()
+
+        one to cashout ()
+        clear screen ()
+
+        free codecamp challenge 69
+
+
+
+        Data needed:
+        currency
+        costOfSpin
+
+        firstSlotValue
+        SeconedSlotValue
+        ThirdSlotValue
+        (AND IF I WANT TO RANDOMLY GENERATE random symbols cut of to give the illusion. Prolly not tho tbh)
+
+*/
