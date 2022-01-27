@@ -14,7 +14,7 @@
 class slotMachine {
     constructor() {
         this.currency = {
-            totalCurrency: 25,
+            totalCurrency: 50,
             betSize: 1
         }
         this.slotspaces = {
@@ -108,7 +108,7 @@ class slotMachine {
 
         spinButton.addEventListener('click', () => {
             let spinSound = document.getElementById('spinSound')
-            spinSound.play()
+            
             // ON CLICK => RANDOM-IDX THE THREE SLOT VALUES AND CHANGE THE INNER TEXT OF THOSE THREE VALUES. THOSE VALUES WILL BE USED LATER WHEN I CREATE THE WIN CONDITIONS
 
             // let spinImg = document.querySelectorAll('.spin-img')
@@ -159,6 +159,7 @@ class slotMachine {
 
             // END OF THE SPINING LOGIC
             if (this.currency.totalCurrency >= this.currency.betSize) {
+                spinSound.play()
                 gameState.innerText = "LETS KEEP SPINNING!"
                 let count = 0
                 reels.forEach(element => {

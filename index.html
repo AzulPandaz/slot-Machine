@@ -43,20 +43,20 @@
             <div class="container">
                 <div class="row">
                     <button id="spinButton" class="btn btn-secondary spin-button col-1">SPIN ME</button>
-                    <div class="betSizing col-6 text-center">
+                    <div class="control-panel col-6 text-center">
                         <p class="bet-sizing">Pick your Bet Sizing:</p>
                         <input type="radio" id="betSizeOne" name="Bets" value="1" checked>
-                        <label for="money">$1</label>
+                        <label for="money" class="bet-pick">$1</label>
                         <input type="radio" id="betSizeThree" name="Bets" value="3">
-                        <label for="money">$3</label>
+                        <label for="money" class="bet-pick">$3</label>
                         <input type="radio" id="betSizeFive" name="Bets" value="5">
-                        <label for="money">$5</label>
+                        <label for="money" class="bet-pick">$5</label>
                         <button class="betSize-Btn" id="betSizeBtn">Confirm Bet Sizing</button>
                     </div>
                     <p class="col-2 total-cash">$
                         <span class="total-currency" id="totalCurrency"></span>
                     </p>
-                    <button class="col-1 cashout-btn" id="cashoutBtn"><span class="cashout-text">Cashout</span></button>
+                    <button class="col-1 cashout-btn btn btn-secondary" id="cashoutBtn"><span class="cashout-text">Cashout</span></button>
                 </div>
             </div>
         </div>

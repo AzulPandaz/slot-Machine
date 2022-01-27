@@ -33,7 +33,8 @@
 /* REEL ONE OF THE SLOT  */
 .symbol{
     /* margin-top: 55%; */
-    font-size: 25px;
+    font-size: 40px;
+    color: white;
 }
 
 .reel-one{
@@ -108,8 +109,25 @@
     background-color: var(--colorFive);
 }
 
-.total-cash, .white-text{
+.total-cash, .white-text, .bet-sizing{
     font-size: 25px;
     color: white;
     font-family: monospace;
+}
+
+.bet-pick{
+    font-size: 20px;
+    color: var(--colorFive);
+    font-family: monospace;
+}
+
+.slot-buttons{
+    padding: 10px 0px;
+}
+
+.cashout-btn{
+    background-color: var(--colorThree);
+    font-family: monospace;
+    color: white;
+    margin: 5px;
 }
