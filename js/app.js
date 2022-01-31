@@ -28,44 +28,44 @@ class slotMachine {
             symbol1: {
                 id: 1,
                 multi: 2,
-                gif: "/media/bulbasaur.gif",
-                img: "/media/bulbasaur.png",
+                gif: "./media/bulbasaur.gif",
+                img: "./media/bulbasaur.png",
                 name: "Bulbasaur"
             },
             symbol2: {
                 id: 2,
                 multi: 4,
-                gif: "/media/staraptor.gif",
-                img: "/media/staraptor.png",
+                gif: "./media/staraptor.gif",
+                img: "./media/staraptor.png",
                 name: "Staraptor"
             },
             symbol3: {
                 id: 3,
                 multi: 6,
-                gif: "/media/luxray.gif",
-                img: "/media/luxray-f.png",
+                gif: "./media/luxray.gif",
+                img: "./media/luxray-f.png",
                 name: "Luxray"
             },
             symbol4: {
                 id: 4,
                 multi: 8,
-                gif: "/media/tyranitar.gif",
-                img: "/media/tyranitar.png",
+                gif: "./media/tyranitar.gif",
+                img: "./media/tyranitar.png",
                 name: "Tyranitar"
             },
             // Premium Symbol
             symbol5: {
                 id: 5,
                 multi: 10,
-                gif: "/media/darkrai.gif",
-                img: "/media/darkrai.png",
+                gif: "./media/darkrai.gif",
+                img: "./media/darkrai.png",
                 name: "DarkRai"
             },
             symbol6: {
                 id: 6,
                 multi: 15,
-                gif: "/media/dialga.gif",
-                img: "/media/dialga.png",
+                gif: "./media/dialga.gif",
+                img: "./media/dialga.png",
                 name: "Dialga"
             }
 
@@ -77,7 +77,7 @@ class slotMachine {
 
     // THIS IS GOING TO SPIN THE SLOT AND GIVE THE VALUES FOR THE HTML FOR THE DISPLAY AND VALUES FOR JS SO THAT IT CAN BE USED FOR WIN CONDITIONS 
     spinSlot() {
-        
+
         // Changing the betSizing
         // https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/
 
@@ -108,7 +108,7 @@ class slotMachine {
 
         spinButton.addEventListener('click', () => {
             let spinSound = document.getElementById('spinSound')
-            
+
             // ON CLICK => RANDOM-IDX THE THREE SLOT VALUES AND CHANGE THE INNER TEXT OF THOSE THREE VALUES. THOSE VALUES WILL BE USED LATER WHEN I CREATE THE WIN CONDITIONS
 
             // let spinImg = document.querySelectorAll('.spin-img')
@@ -124,9 +124,7 @@ class slotMachine {
             // spinImg.forEach(element => {
             //     element.classList.remove("d-none")
             // });
-
             // MAKE A FOR EACH LOOP THAT WILL GO THROUGH EACH SLOT SPACE AND READ THE NUMBER TO CHANGE THE IMG ACCORDINGLY 
-
             // for (let i = 0; i < spinImg.length; i++) {
             //     setTimeout(() => {
             //         spinImg[i].classList.add("d-none")
@@ -142,10 +140,11 @@ class slotMachine {
             let reelThree = document.getElementById('reelThree')
             let reels = [reelOne, reelTwo, reelThree]
 
+            
             let smallWin = document.getElementById('smallWin')
             let midWin = document.getElementById('midWin')
             let bigWin = document.getElementById('bigWin')
-            
+
 
 
             const winningSpins = [
@@ -163,28 +162,28 @@ class slotMachine {
                 gameState.innerText = "LETS KEEP SPINNING!"
                 let count = 0
                 reels.forEach(element => {
-                    if (slotImgCheck[count] == 1) {
+                    if (slotImgCheck[count] == this.symbols.symbol1.id) {
                         // <img src="" alt="" class="symbol-img">
                         element.innerHTML = `
                             <img src="${this.symbols.symbol1.gif}" alt="" class="symbol-img">
                             `
-                    } else if (slotImgCheck[count] == 2) {
+                    } else if (slotImgCheck[count] == this.symbols.symbol2.id) {
                         element.innerHTML = `
                             <img src="${this.symbols.symbol2.gif}" alt="" class="symbol-img">
                             `
-                    } else if (slotImgCheck[count] == 3) {
+                    } else if (slotImgCheck[count] == this.symbols.symbol3.id) {
                         element.innerHTML = `
                             <img src="${this.symbols.symbol3.gif}" alt="" class="symbol-img">
                             `
-                    } else if (slotImgCheck[count] == 4) {
+                    } else if (slotImgCheck[count] == this.symbols.symbol4.id) {
                         element.innerHTML = `
                             <img src="${this.symbols.symbol4.gif}" alt="" class="symbol-img">
                             `
-                    } else if (slotImgCheck[count] == 5) {
+                    } else if (slotImgCheck[count] == this.symbols.symbol5.id) {
                         element.innerHTML = `
                             <img src="${this.symbols.symbol5.gif}" alt="" class="symbol-img">
                             `
-                    } else if (slotImgCheck[count] == 6) {
+                    } else if (slotImgCheck[count] == this.symbols.symbol6.id) {
                         element.innerHTML = `
                             <img src="${this.symbols.symbol6.gif}" alt="" class="symbol-img">
                             `
@@ -199,7 +198,7 @@ class slotMachine {
 
                 // if (this.currency.totalCurrency >= this.currency.betSize) {
 
-                
+
 
                 switch (slotResult) {
                     case winningSpins[0]:
@@ -250,6 +249,7 @@ class slotMachine {
                 slotMachine.classList.add("d-none")
                 cashOutBtn.classList.add('d-none')
                 gameState.innerText = "YOU LOST ALL YOUR MONEY?!"
+
             } else {
                 console.log("error")
             }
@@ -265,7 +265,7 @@ class slotMachine {
             if (this.currency.totalCurrency > startingBetSize) {
                 gameState.innerText = `HEY! YOU CASHED OUT AND MADE IT OUT WITH SOME PROFIT!,$${this.currency.totalCurrency - startingBetSize} IN PROFIT TO BE EXACT!NICE ONE TRAINER`
             } else if (this.currency.totalCurrency < startingBetSize) {
-                gameState.innerText = `Hey at least you made that right choice to leave, Sorry your went -$${this.currency.totalCurrency - startingBetSize} down. Remember to gamble for fun never to profit. Next time you got this Champ.`
+                gameState.innerText = `Hey at least you made that right choice to leave, Sorry your went $${this.currency.totalCurrency - startingBetSize} down. Remember to gamble for fun never to profit. Next time you got this Champ.`
             } else {
                 gameState.innerText = `Going even is never bad, at least I hope you had fun.`
             }
