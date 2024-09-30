@@ -111,15 +111,74 @@ class slotMachine {
 
             // ON CLICK => RANDOM-IDX THE THREE SLOT VALUES AND CHANGE THE INNER TEXT OF THOSE THREE VALUES. THOSE VALUES WILL BE USED LATER WHEN I CREATE THE WIN CONDITIONS
 
+            //New
+            
             // let spinImg = document.querySelectorAll('.spin-img')
-            var slotOneOneIdx = Math.ceil(Math.random() * 6)
-            var slotOneTwoIdx = Math.ceil(Math.random() * 6)
-            var slotOneThreeIdx = Math.ceil(Math.random() * 6)
+            //var slotOneOneIdx = Math.ceil(Math.random() * 6);
+            var slotOneOneIdx = Math.ceil(Math.random() * 100);
+            //var slotOneTwoIdx = Math.ceil(Math.random() * 6);
+            var slotOneTwoIdx = Math.ceil(Math.random() * 100);
+            //var slotOneThreeIdx = Math.ceil(Math.random() * 6);
+            var slotOneThreeIdx = Math.ceil(Math.random() * 100);
+            
+            var slotIdxArray = [slotOneOneIdx, slotOneTwoIdx, slotOneThreeIdx]
+            console.log(slotIdxArray[0], slotIdxArray[1], slotIdxArray[2])
+
+            
+            //2024 Roger here, Essesntially gonna make it so you can actually win, aka make it so that you have a greater chance of hitting like lower symbols ie outta 100 1-40 meaks you get a 1 so putting some actually logic to the lucK? if that makes sense. After that gonna make it so you can like win with two symbols in the same line. 
+
+
             // CHANGE THIS WHEN YOU ADD MORE SYMBOLS USING CEIL PREVENTS FROM GETTING 0
 
-            this.slotspaces.oneOneSlot = slotOneOneIdx
-            this.slotspaces.oneTwoSlot = slotOneTwoIdx
-            this.slotspaces.oneThreeSlot = slotOneThreeIdx
+            //let idxcount = 0;
+            for(let idxcount = 0; idxcount < slotIdxArray.length; idxcount++){
+                if (slotIdxArray[idxcount] <= 40 && slotIdxArray[idxcount] >= 0) {
+                    slotIdxArray[idxcount] = 1 
+                    //41-61
+                } else if (slotIdxArray[idxcount] <= 66 && slotIdxArray[idxcount] >= 41) {
+                    slotIdxArray[idxcount] = 2
+                } else if (slotIdxArray[idxcount] <= 78  && slotIdxArray[idxcount] >= 67) {
+                    slotIdxArray[idxcount] = 3
+                } else if (slotIdxArray[idxcount] <= 88 && slotIdxArray[idxcount] >= 79) {
+                    slotIdxArray[idxcount] = 4
+                } else if (slotIdxArray[idxcount] <= 94 && slotIdxArray[idxcount] >= 89) {
+                    slotIdxArray[idxcount] = 5
+                }else if (slotIdxArray[idxcount] <= 100 && slotIdxArray[idxcount] >= 95) {
+                    slotIdxArray[idxcount] = 6
+                } else{
+                    console.log('Error')
+                }
+                console.log(slotIdxArray[idxcount])
+
+            }
+
+            // while (idxcount < slotIdxArray.length) {
+            //     //0-40
+            //     if ((slotIdxArray[idxcount] <= 40) || (slotIdxArray[idxcount] >= 0)) {
+            //         slotIdxArray[idxcount] = 1 
+            //         //41-61
+            //     } else if ((slotIdxArray[idxcount] <= 66) || (slotIdxArray[idxcount] >= 41)) {
+            //         slotIdxArray[idxcount] = 2
+            //     } else if ((slotIdxArray[idxcount]) <=78  || (slotIdxArray[idxcount] >= 67)) {
+            //         slotIdxArray[idxcount] = 3
+            //     } else if ((slotIdxArray[idxcount]) <= 88 || (slotIdxArray[idxcount] >= 79)) {
+            //         slotIdxArray[idxcount] = 4
+            //     } else if ((slotIdxArray[idxcount] <= 94) || (slotIdxArray[idxcount] >= 89)) {
+            //         slotIdxArray[idxcount] = 5
+            //     }else if ((slotIdxArray[idxcount] <= 100) || (slotIdxArray[idxcount] >= 95)) {
+            //         slotIdxArray[idxcount] = 6
+            //     } else{
+            //         console.log('Error')
+            //     }
+            //     console.log(slotIdxArray[idxcount])
+            //     idxcount++;
+            // }
+            
+
+
+            this.slotspaces.oneOneSlot = slotIdxArray[0];
+            this.slotspaces.oneTwoSlot = slotIdxArray[1];
+            this.slotspaces.oneThreeSlot = slotIdxArray[2];
 
             // spinImg.forEach(element => {
             //     element.classList.remove("d-none")
